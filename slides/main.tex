@@ -4,7 +4,7 @@
 \usepackage{comment}
 \usepackage{pgfpages}
 \usepackage{bm}
-
+\usepackage[]{algorithm2e}
 
 \usetheme[progressbar=frametitle]{metropolis}
 \tikzset{font={\fontsize{10pt}{12}\selectfont}}
@@ -742,8 +742,130 @@ We proceed by \textit{backward induction} to find the Nash Equilibrium.
     \fullcite{pd-repeated-real-life}.
 \end{frame}
 
+
+
+
+\begin{frame}{Folk Theorem}
+    \textbf{Folk Theorems}
+    \begin{itemize}
+        \item Theorems that circulate among mathematicians but cannot be traced back to one individual
+        \item Considered to have established status but generally no proof in complete form
+        \item One notable one in Game Theory, that we are going to see today
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Folk Theorem}
+    \textbf{Formulation of the theorem:}\\
+    \textit{Consider any $n$-player normal-form game $G$ and any payoff profile $r = (r_1,r_2,...,r_n)$. Then:}
+    \begin{enumerate}
+        \item \textit{If $r$ is the payoff profile for any Nash equilibrium s of the infinitely repeated $G$ with average rewards, then for each player $i$, $r_i$ is enforceable.}
+        \item \textit{If $r$ is both feasible and enforceable, then $r$ is the payoff profile for some Nash equilibrium of the infinitely repeated $G$ with average rewards.}
+    \end{enumerate}
+    \textit{This version of the theorem is proven in the book [MAS]}
+\end{frame}
+
+
+\begin{frame}{Folk Theorem}
+    \textbf{What does it mean?}\\
+    \begin{itemize}
+        \item The first part of the theorem means that we can enforce any Nash equilibrium of the infinitely-repeated game
+        \item The second part states that any payoff profile that is feasible and enforceable is the payoff profile of a Nash equilibrium 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Folk Theorem}
+    \textbf{Consequences}\\
+    \begin{itemize}
+        \item Interesting consequences: apparition of new Nash equilibrium's for certain games
+        \item Example: prisoner's dilemna
+        \begin{itemize}
+            \item If game goes on long enough ($\delta \rightarrow 1$), cooperation of both players becomes a Nash equilibrium
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Learning rules}
+    \textbf{Definition}
+    \begin{itemize}
+        \item Learning strategy: Use of previous information to improve its behavior
+        \item Deeply linked with artificial intelligence
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Learning rules}
+    \textbf{Two types of theories}
+    \begin{itemize}
+        \item Descriptive theories: theories that attempt to study the way learning takes place in real life
+        \item Prescriptive theories: theories that study the way agents \textit{should} react in real life
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptive theories}
+    \textbf{Properties}
+    \begin{itemize}
+        \item \textbf{Realism}: There should be a good match between the formal theory and the natural phenomenon being studied
+        \item \textbf{Convergence}: The theory should exhibit convergence of the strategy profile to some equilibrium
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Prescriptive theories}
+    \textbf{Properties}
+    \begin{itemize}
+        \item \textbf{Safety}: Guarantees the agent at least learning rule its maxmin payoff, or “security value.”
+        \item \textbf{Rationality}: Whenever the opponent's learning rule settles on a stationary strategy the agent settles on a best response to that strategy
+        \item \textbf{No-regret}: Yields a better result that any pure strategy the agent could have played
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fictitious play}
+    \textbf{Fictitious play}
+    \begin{itemize}
+        \item One of the earliest learning rules 
+        \item Instance of model-based learning where learner maintains belief about opponent
+        \item Agent believes that his opponent is playing the mixed strategy given by the empirical distribution of the opponent’s previous actions
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fictitious play}
+    \begin{algorithm}[H]
+         Initialize beliefs about the opponent strategy\;
+         \While{true}{
+            Play a best response to the assessed strategy of the opponent\\
+            Observe the opponent’s actual play and update beliefs accordingly\\
+         }
+    \caption{Fictitious play algorithm}
+    \end{algorithm}
+\end{frame}
+
+
+\begin{frame}{No-regret playing}
+    \textbf{Regret}\\
+    \textit{Let $\alpha^t$ be the average per-period reward the agent received up to time $t$ and $\alpha^t(s)$ the average per-period reward the agent would have received by playing strategy $s$.}\\
+    \textit{The regret an agent experiences at time $t$ for not having played $s$ is $R^t(s)=\alpha^t-\alpha^t(s)$}
+\end{frame}
+
+\begin{frame}{No-regret playing}
+    \textbf{No-regret learning rule}\\
+    \textit{A learning rule exhibits \textbf{no regret} if it guarantees with high probability that the agent will not experience any positive regret}
+\end{frame}
+
+\begin{frame}{No-regret playing}
+    \textbf{Example of a no-regret strategy: Regret matching}\\
+    \begin{itemize}
+        \item At each time step each action is chosen with probability consistent to its regret
+        \item The strategy of playing strategy $s$ at timestep $t+1$ is equal to:
+        \[
+            \sigma_i^{t+1}(s)= \frac{R^t(s)}{\sum_{s'\in S_i} R^t(s')}
+        \]
+    \end{itemize}
+\end{frame}
+
+
 \begin{frame}[standout]
     Questions?
 \end{frame}
+
+
 
 \end{document}

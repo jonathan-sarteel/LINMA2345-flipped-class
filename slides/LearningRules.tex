@@ -1,0 +1,76 @@
+
+\begin{frame}{Learning rules}
+    \textbf{Definition}
+    \begin{itemize}
+        \item Learning strategy: Use of previous information to improve its behavior
+        \item Deeply linked with artificial intelligence
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Learning rules}
+    \textbf{Two types of theories}
+    \begin{itemize}
+        \item Descriptive theories: theories that attempt to study the way learning takes place in real life
+        \item Prescriptive theories: theories that study the way agents \textit{should} react in real life
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptive theories}
+    \textbf{Properties}
+    \begin{itemize}
+        \item \textbf{Realism}: There should be a good match between the formal theory and the natural phenomenon being studied
+        \item \textbf{Convergence}: The theory should exhibit convergence of the strategy profile to some equilibrium
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Prescriptive theories}
+    \textbf{Properties}
+    \begin{itemize}
+        \item \textbf{Safety}: Guarantees the agent at least learning rule its maxmin payoff, or “security value.”
+        \item \textbf{Rationality}: Whenever the opponent's learning rule settles on a stationary strategy the agent settles on a best response to that strategy
+        \item \textbf{No-regret}: Yields a better result that any pure strategy the agent could have played
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fictitious play}
+    \textbf{Fictitious play}
+    \begin{itemize}
+        \item One of the earliest learning rules 
+        \item Instance of model-based learning where learner maintains belief about opponent
+        \item Agent believes that his opponent is playing the mixed strategy given by the empirical distribution of the opponent’s previous actions
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fictitious play}
+    \begin{algorithm}[H]
+         Initialize beliefs about the opponent strategy\;
+         \While{true}{
+            Play a best response to the assessed strategy of the opponent\\
+            Observe the opponent’s actual play and update beliefs accordingly\\
+         }
+    \caption{Fictitious play algorithm}
+    \end{algorithm}
+\end{frame}
+
+
+\begin{frame}{No-regret playing}
+    \textbf{Regret}\\
+    \textit{Let $\alpha^t$ be the average per-period reward the agent received up to time $t$ and $\alpha^t(s)$ the average per-period reward the agent would have received by playing strategy $s$.}\\
+    \textit{The regret an agent experiences at time $t$ for not having played $s$ is $R^t(s)=\alpha^t-\alpha^t(s)$}
+\end{frame}
+
+\begin{frame}{No-regret playing}
+    \textbf{No-regret learning rule}\\
+    \textit{A learning rule exhibits \textbf{no regret} if it guarantees with high probability that the agent will not experience any positive regret}
+\end{frame}
+
+\begin{frame}{No-regret playing}
+    \textbf{Example of a no-regret strategy: Regret matching}\\
+    \begin{itemize}
+        \item At each time step each action is chosen with probability consistent to its regret
+        \item The strategy of playing strategy $s$ at timestep $t+1$ is equal to:
+        \[
+            \sigma_i^{t+1}(s)= \frac{R^t(s)}{\sum_{s'\in S_i} R^t(s')}
+        \]
+    \end{itemize}
+\end{frame}

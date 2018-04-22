@@ -1,10 +1,9 @@
-\documentclass[10pt, notes]{beamer}
+\documentclass[10pt, notes, handout]{beamer}
 
 \input{lib.tex}
 \usepackage{comment}
 \usepackage{pgfpages}
 \usepackage{bm}
-
 
 \usetheme[progressbar=frametitle]{metropolis}
 \tikzset{font={\fontsize{10pt}{12}\selectfont}}
@@ -40,9 +39,10 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 
-\usepackage[doi=false,isbn=false,note=false,url=false,eprint=false, backend=bibtex]{biblatex} 
-\AtEveryCitekey{\clearfield{note}\clearlist{location}\clearlist{publisher}\clearname{editor}}
-\bibliographystyle{plain}
+%[doi=false,isbn=false,note=false,url=false,eprint=false, backend=bibtex]
+\usepackage{biblatex} 
+%\AtEveryCitekey{\clearfield{note}\clearlist{location}\clearlist{publisher}\clearname{editor}}
+%\bibliographystyle{plain}
 \bibliography{biblio}
 
 \definecolor{green}{HTML}{14B03D}
@@ -742,6 +742,10 @@ We proceed by \textit{backward induction} to find the Nash Equilibrium.
     \fullcite{pd-repeated-real-life}.
 \end{frame}
 
+
+\input{comp_state_inf.tex}
+
+\input{stan_info.tex}
 \begin{frame}[standout]
     Questions?
 \end{frame}

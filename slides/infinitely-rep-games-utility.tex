@@ -1,0 +1,97 @@
+\begin{frame}{Infinitely Repeated Games and Utility}
+    Player $i$ gets a potentially infinite sequence of payoffs
+    \[ (u_i(1), u_i(2), u_i(3), \dots). \]
+
+    \begin{alertblock}{We need a criterion for \textit{ranking} payoff sequences!}
+        \pause
+        \begin{itemize}
+            \item Sum of payoffs as in the finitely repeated case? \textbf{No}, may be
+            infinite. \pause
+            \item Other criteria exist: limit of average payoff, $\delta$-discounted average,
+            {\color{gray}overtaking criterion}, etc.
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\note{
+    We want to turn this infinite sequence in a single number we can reason about!
+
+    Sum of payoffs might actually be finite in some very particular condition: there is
+    an absorbing state in which the player's payoffs are always 0 and the expected number
+    of rounds until arrival at this absorbing state is always finite (see Myerson).
+
+    The overtaking criterion is in gray because it will not be covered here.
+}
+
+\begin{frame}{Limit of average payoff}
+    \metroset{block=fill}
+    \begin{block}{Definition}
+        The limit of average of a sequence of payoffs $(u_i(1), u_i(2), u_i(3), \dots)$ is
+        \[ \lim_{K\to\infty} \frac{1}{K} \sum_{k=1}^K u_i(k). \]
+    \end{block}
+    
+    \setbeamercolor{itemize item}{fg=orange,bg=white}
+    \textbf{{\color{orange}Limitations}}\\
+    \pause
+    \begin{itemize}
+        \item The limit may not exists. \pause
+        \item Let's say you play a game every year: during the first 100 years, you lose \$1M
+        each year. Afterward, you win \$1 each year.\\\
+            
+        What is the limit of average payoffs? \pause \textbf{{\color{orange}\$1}}...
+    \end{itemize}
+\end{frame}
+
+\note{
+    The first limitation is mathematical and can easily be identified by the audience: we should
+    ask them first.
+    We should maybe also mention than there exist a way to weaken the criterion so that
+    the limit always exists (using limit-infimum and limit-supremum) and redirect to Myerson
+    for more details.
+}
+
+\begin{frame}{$\delta$-discounted average payoff}
+    \metroset{block=fill}
+    \begin{block}{Definition}
+        For any \textit{discount factor} $\delta$ such that $0 \le \delta < 1$, the $\delta$-\textit{discounted
+        average} of a sequence of payoffs $(u_i(1), u_i(2), u_i(3), \dots)$ is
+        \[ (1-\delta)\sum_{k=1}^{\infty} \delta^{k-1}u_i(k). \]
+    \end{block}
+
+    \setbeamercolor{itemize item}{fg=green,bg=white}
+    \textbf{{\color{green}Interpretations}}\\
+    \pause
+    \begin{itemize}
+        \item The game has a probability $\delta$ of continuing at each round, the $\delta$-discounted
+        average in this case is simply the expected future payoff. \pause
+        \item The discount factor $\delta$ represents a \textit{measure of patience}.
+    \end{itemize}
+\end{frame}
+
+\note{
+    \textbf{For any general repeated game, if the payoffs are bounded, then de $\delta$-discounted
+    average of each player's sequence of payoffs is a finite number and is bounded in absolute
+    value by the same number that bounds payoffs}.
+
+    Before unraveling the item in the interpretation list, we might ask if they can provided
+    an interpretation based on the previous example we just saw.
+
+    Show quickly that if $\delta = 0$, the discounted average simply give $u_i(1)$.
+    While in the limit as $\delta \to 1$, the weights of each $u_i(k)$ tend to be equal.
+    Important to note that this is in the limit (as for $\delta = 1$ we just get 0...).
+}
+
+\begin{frame}{Take-home message \#3}
+    \metroset{block=fill}
+    \begin{block}{Take-home message \#3}
+        There exists several critera for ranking sequence of payoffs $(u_i(1), u_i(2), u_i(3), \dots)$
+        \begin{itemize}
+            \item \textit{limit of average payoffs}
+            \[ \lim_{K\to\infty} \frac{1}{K} \sum_{k=1}^K u_i(k). \]
+            {\color{orange}Might not exist, counter-intuitive in some case}.
+            \item $\delta$\textit{-discounted average payoff}
+            \[ (1-\delta)\sum_{k=1}^{\infty} \delta^{k-1}u_i(k). \]
+            {\color{green}Always bounded if the payoffs are bounded, easy interpretations}. 
+        \end{itemize}
+    \end{block}
+\end{frame}

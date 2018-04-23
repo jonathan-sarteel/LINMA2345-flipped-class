@@ -17,6 +17,8 @@
 \usepackage{grffile} 	% better name handling with graphicx
 \usepackage{currfile} 	% provides relative file inclusion for tikzscale
 
+\usepackage[]{algorithm2e}
+
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{tikzscale}
@@ -113,3 +115,34 @@
 \newcommand{\mX}{\mtx{X}}
 \newcommand{\mY}{\mtx{Y}}
 \newcommand{\mZ}{\mtx{Z}}
+
+\usepackage{comment}
+\usepackage{pgfpages}
+\usepackage{bm}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\tikzset{font={\fontsize{10pt}{12}\selectfont}}
+\usepackage{hf-tikz}
+\usetikzlibrary{ 
+	calc,
+	arrows,
+	arrows.meta,
+	automata, 
+	shapes, 
+	snakes, 
+	positioning, 
+	decorations,
+	decorations.text,
+	fit,
+	matrix,
+	mindmap
+	}
+\tikzstyle{noeud-std}=[draw,fill=black,circle,inner sep=0pt,minimum size=7pt]
+\usepackage{tkz-graph}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\definecolor{orange}{HTML}{EB811B}
+\definecolor{green}{HTML}{14B03D}
+\newcommand{\payoff}[2]{{\color{green}#1}, {\color{red}#2}}

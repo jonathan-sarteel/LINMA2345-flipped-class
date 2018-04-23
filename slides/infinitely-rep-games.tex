@@ -1,0 +1,104 @@
+\begin{frame}{Let's again play the repeated Prisoner's Dilemma}
+    \begin{exampleblock}{Example}
+        Consider again the Prisoner's Dilemma in normal form.
+        \begin{table}
+            \begin{tabular}{c|cc}
+                & {\color{red}c}    & {\color{red}d} \\
+                \hline
+                {\color{green}C}    & \payoff{-1}{-1}   & \payoff{-4}{~0} \\
+                {\color{green}D}    & \payoff{~0}{-4}    & \payoff{-3}{-3} 
+            \end{tabular}
+            \caption{Prisoner's Dilemma in normal form.}
+        \end{table}
+    
+        We will roll a (fair) dice after each round
+        \begin{itemize}
+            \item if the result is 1, the game stops,
+            \item otherwise the game continues.
+        \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\note{
+    Draw a table on the blackboard and collect the actions/outcomes of each pair
+    of students after each round.
+
+    At the end, quickly compare the result. Ask students to motivate their strategy
+    choice (especially if it differs from what a rationnal player would do).
+
+    In theory, student should more cooperate than in the previous case. However,
+    because people already tend to cooperate in the finitely repeated case, the
+    difference might not be significant on the small sample we have.
+}
+
+\begin{frame}{Can a cooperative strategy be a Nash Equilibrium?}
+    Consider the \textbf{grim} strategy: \textit{cooperate at each round, until the other defect,
+    then defect forever} and assume both players play accordingly.
+
+    For this cooperative strategy to be a Nash Equilibrium, neither player can expect to
+    gain by any unilateral deviation at any point in time (i.e., for any history of past moves).
+    
+    Two possible history of past moves in this case
+    \begin{enumerate}
+        \pause
+        \item \textit{one of the player has defected in the past}: both players are then always defecting
+        and neither player could gain by deviating alone to cooperation, \pause
+        \item \textit{neither player has ever defected in the past}: both players are then always cooperating.
+        Could it be more profitable for one player to defect? Less obvious, see blackboard!
+    \end{enumerate}
+\end{frame}
+    
+\note{
+    The total number of rounds follows a geometric distribution with expected value 6. That is, the
+    probability that we play \textit{exactly} $k$ rounds is given by
+    \[ p(k) = \left(\frac{5}{6}\right)^{k-1}\frac{1}{6}. \]
+
+    The following formula is useful in the following reasonning
+    \[ \sum_{k=1}^{\infty} kz^k = \frac{z}{(1-z)^2}. \]
+}
+
+\note{
+    If both players follows the strategy and cooperate, they will each get an expected total future
+    payoff of
+    \begin{align*}
+        \sum_{k=1}^{\infty} (-1k)\cdot p(k) &= -\frac{1}{6} \sum_{k=1}^{\infty} k\left(\frac{5}{6}\right)^{k-1}\\
+                                            &= -\frac{1}{5} \sum_{k=1}^{\infty} k\left(\frac{5}{6}\right)^k \\
+                                            &= -\frac{1}{5} \frac{5/6}{(1-5/6)^2} \\
+                                            &= -\frac{1}{5} \frac{5}{6}\cdot 36 \\
+                                            &= -6.
+    \end{align*}
+}
+
+\note{
+    If one of the players deviate and decide to defect, he will get 0 first and then -4 forever because the
+    other player will always defect to punish him, the deviating player will then get an expected total future
+    payoff of
+    \begin{align*}
+        0 + \sum_{k=2}^{\infty} (-3k)\cdot p(k) &= -\frac{1}{2} \sum_{k=2}^{\infty} k\left(\frac{5}{6}\right)^{k-1}\\
+                                                &= -\frac{1}{2} \frac{6}{5} \sum_{k=2}^{\infty} k\left(\frac{5}{6}\right)^k \\
+                                                &= -\frac{3}{5} \left(-\frac{5}{6} + \sum_{k=1}^{\infty} k\left(\frac{5}{6}\right)^k \right) \\
+                                                &= -\frac{3}{5} \left(-\frac{5}{6} + 30 \right) \\
+                                                &= -\frac{3}{5} \frac{175}{6} = -17.5 < -6.
+    \end{align*}
+}
+
+\begin{frame}{Intepretation of the cooperative Nash Equilibrium}
+    \begin{block}{How can we explain this cooperative equilibrium?}
+        At each round, both players believe that there is a high probability that they
+        will play again. The hope of inducing a future cooperative behavior by the other
+        player can give each player an incentive to be generous.
+
+        In addition, both players know that defecting is forever punished by the other
+        player so that defecting, while more profitable in the short-term, is not profitable
+        in the long-term.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Take-home message \#2}
+    \metroset{block=fill}
+    \begin{block}{Take-home-message \#2}
+        Rational behavior in a repeated games with a potentially infinite time horizon may be
+        very different from rational behavior in the corresponding game played once (or a finite
+        and known number of times).
+    \end{block}
+\end{frame}

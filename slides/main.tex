@@ -1,13 +1,17 @@
-\documentclass[10pt, notes]{beamer}
+\documentclass[10pt]{beamer}
+\usepackage{pgfpages}
+%\setbeameroption{show notes}
 
 \input{lib.tex}
+\usepackage{ellipsis}
+\def\smartphone{\includegraphics[height=1cm]{Smartphone-icon}}
 
 \title{LINMA2345 - Game theory}
 \subtitle{Repeated games}
 \date{\today}
 \author{Antoine Gennart\and Jonathan Sarteel\and Antoine Paris}
 \institute{Ecole polytechnique de Louvain}
-\titlegraphic{\hfill\includegraphics[height=1cm]{logo}}
+\titlegraphic{\hfill\includegraphics[height=0.3cm]{logo}}
 
 \begin{document}
 \maketitle
@@ -61,6 +65,12 @@
 
 \input{LearningRules.tex}
 
+\section{Game Theory in Communications: Power Control}
+\begin{frame}{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\input{application.tex}
 
 \begin{frame}{References}
     \nocite{*}

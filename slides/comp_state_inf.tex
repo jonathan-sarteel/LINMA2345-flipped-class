@@ -1,0 +1,105 @@
+\section{Repeated game with complate state information}
+
+\begin{frame}{Definition}
+
+\textbf{Definition: }A repeated game $\Gamma^r = (N,\Theta, (D_i,S_i,u_i)_{i\in N},q,p)$ has \textit{complete state information} if, at every round, every player knows the current state of nature. That is, there is a function $\omega_i:S_i \rightarrow \Theta$ know by each player such that:
+\begin{equation*}
+	\forall s \in S, \forall \theta, \hat{\theta} \in \Theta, \forall d \in D : p(s,\hat{\theta} | d,\theta) = 0 \text{if} \hat{\theta} \neq \omega_i(s_i)
+\end{equation*}
+So the signal $s_i$ can never occur unless the current state is $\omega(s_i)$
+
+\pause
+
+\textbf{Definition: }In a repeated game, a game is said to be \textit{stationnary} iff the move probabiliy depends only on the current state. That is there is a function $\tau_i : \Theta \rightarrow \Delta(D_i)$ such that:
+\begin{equation*}
+	\forall k, \forall s \in (S)^{\times k} : \sigma_i^{[k]}(\cdot | s) = \tau_i(\cdot | \omega_i(s_i^{[k]}))
+\end{equation*}
+\end{frame}
+
+\begin{frame}{Classical strategies}
+\begin{itemize}
+	\item \textbf{Tit-for-tat:} We begin by cooperating and then, at every round, we chose the move of our opponent at the last round.
+	\item \textbf{Grim:} We begin the game with cooperation and continue cooperating at each round unless the other player defects. From this point on, we defect.
+	\item \textbf{Getting-even:} We begin by cooperating, and continue cooperating unless the opponent has defected more time that we did defect. If this is the case, we defect.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Small example to understand complete state information}
+\textit{Consider the prisoner's dilema game in a setting where player make decision based only on the last move of they adversary.} \note{This is contrary to decision theory to make this assumption. Some strategies can still be analysed in that setting. (tit-for-tat)}
+
+\pause
+$\Rightarrow$ 4 differents states : $\Theta = \{([C,c]), ([C,d]), ([D,c]), ([D,d])\}$
+
+\pause
+If both player play the \textbf{tit-for-tat} strategy
+
+\begin{minipage}{0.6\linewidth}
+\includegraphics[width=0.9\linewidth]{img/titfortat.png}
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+	\begin{itemize}
+		\item Plain arrow if player 1 play tit-for-tat.
+		\item Dashed arrow if player 1 play the opposite.
+		\item Player 2 play tit-for-tat
+	\end{itemize}
+	\note{
+		Make the graph on board if we play grim strategy
+		
+		\includegraphics[width=0.5\linewidth]{img/ex_grim.jpg}	
+	}
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}{Analyze the game}
+Let's $\nu_i$ be the \textit{expected $\delta$-discounted average} of player $i$ when beginning from the state $\theta \in \Theta$ when everyone plays according to $\tau$.
+\begin{small}
+\begin{align*}
+\nu_i(\theta, \tau) &=   \sum_{d_i \in D_i} \tau_i(d_i|\theta) \cdot Y_i(\tau, d_i, \nu_i, \theta, \delta)\\
+&= \sum_{d_i \in D_i} \tau_i(d_i|\theta) \sum_{d_{-i} \in D_{-i}} \tau_{-i}(d_{-i} |\theta) \left( (1-\delta) u_i(d_i,\theta) + \delta \sum_{\hat{\theta}} p(\hat{\theta}|d,\theta) \nu_i(\hat{\theta},\tau) \right)  \\
+&= \text{max}_{d_i \in D_i} Y_i(\tau, d_i, \nu_i, \theta, \delta)
+\end{align*}
+\end{small}
+\begin{small}
+\begin{align*}
+Y_i(\tau, d_i, \nu_i, \theta, \delta) = \sum_{d_{-i} \in D_{-i}} \tau_{-i}(d_{-i} |\theta) \left( (1-\delta) u_i(d_i,\theta) + \delta \sum_{\hat{\theta}} p(\hat{\theta}|d,\theta) \nu_i(\hat{\theta},\tau) \right)
+\end{align*}
+\end{small}
+This expression can be interpreted as the gain of player $i$ if he played the move $d_i$ once if at state $\theta$ everyone else follows $\tau$.
+\end{frame}
+
+\begin{frame}{Let's go back to the prisonner's dilema for a small example}
+For a given $0 \leq \delta < 1$ we have the followin $\delta$-discounted payoff for player 1
+	\begin{align*}
+		\nu_1([C],[c]) &= (1-\delta) \cdot 1 + \delta \cdot \nu_1([C],[c])\\
+		\nu_1([D],[c]) &= (1-\delta) \cdot -1 + \delta \cdot \nu_1([C],[c])\\
+		\nu_1([C],[d]) &= (1-\delta) \cdot 2 + \delta \cdot \nu_1([C],[c])\\
+		\nu_1([D],[d]) &= (1-\delta) \cdot 0 + \delta \cdot \nu_1([C],[c])
+	\end{align*}
+\pause
+The solution are imediate:
+\begin{align*}
+	\nu_1([C],[c]) &= 1\\
+	\nu_1([D],[c]) &= \frac{2\delta - 1}{1+\delta}\\
+	\nu_1([C],[d]) &= \frac{2-\delta}{1+\delta}\\
+	\nu_1([D],[d]) &= 0
+\end{align*}
+\end{frame}
+
+\begin{frame}
+	Then, to ensure that $\tau$ is an equilibrium of the repeated game, we must verify the equation $\nu_i(\theta) = \text{max}_{d_i \in D_i} Y_i(\tau, d_i, \nu_i, \theta, \delta)$. That is to ensure that the follwing inequalities are satisfied.
+\begin{align*}
+	\nu_1([C],[c]) &\geq (1-\delta)2 + \delta \nu_1([D],[c]) = \nu_1([C],[d]) \quad \text{Doing D instead of C}\\
+	\nu_1([D],[c]) &\geq (1-\delta)0 + \delta \nu_1([D],[d]) = 0 \qquad \text{Doing D instead of C}\\
+	\nu_1([C],[d]) &\geq (1-\delta)1 + \delta \nu_1([C],[c]) = 1 \qquad \text{Doing C instead of D}\\
+	\nu_1([D],[d]) &\geq (1-\delta)(-1) + \delta \nu_1([C],[d]) = \nu_1([D],[c]) \quad \text{Doing C instead of D}
+\end{align*}
+
+\pause
+\begin{itemize}
+	\item For $\delta = 0.5$ : equilibrium reached
+	\item For $\delta \leq 0.5$ : We play as for the non repetitive Prisoner's dilemma (search for immediate reward).
+	\item For $\delta \geq 0.5$ : If we know that the other is going to play Tit-for-Tat, we should always play cooperate.
+\end{itemize}
+\end{frame}

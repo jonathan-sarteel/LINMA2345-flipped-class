@@ -24,8 +24,6 @@ inner sep=3pt}}
 	\end{tikzpicture}
 }
 
-
-
 \begin{frame}{The need for Game Theory in communication systems}
     \begin{itemize}
         \item \textbf{There is a vast litterature on using game theory in communications.}
@@ -91,11 +89,10 @@ inner sep=3pt}}
             middlearrow/.style 2 args={
                 decoration={             
                     markings, 
-                    mark=at position 0.5 with {\node[#1] {#2};}
-                },
-                postaction={decorate}
-            }
-        ]
+                    mark=at position 0.5 with {\node[#1] {#2};}},
+                postaction={
+                    decorate}}
+            ]
             \node at (0, 0) (BS) {\BS{BS}};
             \node at (-2, 1) (UE1) {\UE{1}};
             \node at (-2, -1) (UE2) {\UE{2}};
@@ -129,8 +126,37 @@ inner sep=3pt}}
 \end{frame}
 
 \begin{frame}{Problem description: utility (2)}
-    \todo[inline]{Plot of the utility function} 
+    \begin{figure}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                    ylabel = {Utility $u_i(p_i)$ (kbits/J)},
+                    xlabel = {Power $p_i$ (W)},
+                    domain = 0:200,
+                    samples = 1000,
+                    xmin = 0,
+                    xmax = 200,
+                    ymin = 0
+                ]
+                \addplot[
+                    color = blue,
+                    thick
+                ]
+                {(x/10)*exp(-x^2/(2*2000))};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Example of an utility function for a player}
+    \end{figure}
 \end{frame}
+
+\note{
+    Intuition behind this utility function:
+    \begin{itemize}
+        \item If $p_i$ is too low, the signal from player $i$ suffers too much from interference
+        and is not well received by the base station.
+        \item If $p_i$ is too high, the battery level of player $i$ is decreasing too quickly.
+    \end{itemize}
+}
 
 \begin{frame}{The single-shot game}
     \begin{block}{Where is the game here?}

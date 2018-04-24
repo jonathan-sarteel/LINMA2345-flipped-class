@@ -50,7 +50,7 @@ inner sep=3pt}}
 \end{frame}
 
 \begin{frame}{An interesting though on Game Theory}
-    In~\cite{mackenzie01}, MacKenzie and Wicker even argue
+    In~\cite{mackenzie01}, MacKenzie and Wicker argue
 
     \begin{center}
         ``\textit{In some sense, game theory is better suited to solving communications
@@ -77,7 +77,7 @@ inner sep=3pt}}
             \pause
             \item The power attenuation between player $i$ and the base station is $h_i \ge 0$
             \pause
-            \item Each player controls is transmitted power level $p_i \ge 0$
+            \item Each player controls its transmitted power level $p_i \ge 0$
         \end{itemize}
     \end{exampleblock}
 \end{frame}
@@ -106,7 +106,7 @@ inner sep=3pt}}
             \draw[middlearrow={above}{$h_5$}, -Latex] (UE4) -- (BS);
             \draw[middlearrow={above}{$h_4$}, -Latex] (UE5) -- (BS);
         \end{tikzpicture}
-        \caption{A simplified view of a cellular network.}
+        \caption{A simplified view of the uplink channels in a cellular network.}
     \end{figure}
 \end{frame}
 
@@ -114,10 +114,11 @@ inner sep=3pt}}
     \begin{exampleblock}{Utility: what does each player want?}
         \begin{itemize}
             \item Each player $i$ wants to increase
-            \[ \text{SINR}_i = \frac{h_ip_i}{\sum_{j\neq i} h_jp_j + \sigma^2} \]
-            where $\sigma^2$ is the noise power level. This corresponds to
-            \textbf{decreasing their interference level} at the base station.
-            \item To \textbf{save their battery life} by not using too much power.
+            \[ \text{SINR}_i = \frac{h_ip_i}{\sum_{j\neq i} h_jp_j 
+                + \underbrace{\sigma^2}_\text{noise power}} \]
+            This corresponds to \textbf{decreasing their interference level} at the base station.
+            \item Each player $i$ wants to avoid using too much power $p_i$. This corresponds
+            to \textbf{saving their battery life}.
         \end{itemize}
     \end{exampleblock}
 
@@ -198,6 +199,11 @@ inner sep=3pt}}
         \end{itemize}
     \end{exampleblock}
 \end{frame}
+
+\note{
+    $\delta$ is very close to 1 because the time slot for the transmission of a single packet
+    is typically very short (on the order of a few tens of microseconds).
+}
 
 \begin{frame}{Equilibrium strategy}
     \begin{block}{Equilibirum strategy}

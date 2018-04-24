@@ -34,20 +34,25 @@
 }
 
 \begin{frame}{Can a cooperative strategy be a Nash Equilibrium?}
-    Consider the \textbf{grim} strategy: \textit{cooperate at each round, until the other defect,
-    then defect forever} and assume both players play accordingly.
+    \begin{block}{Cooperative strategy}
+        \textit{cooperate at each round, until the other defect,
+        then defect forever} and assume both players play accordingly.
+    \end{block}
 
-    For this cooperative strategy to be a Nash Equilibrium, neither player can expect to
-    gain by any unilateral deviation at any point in time (i.e., for any history of past moves).
-    
-    Two possible history of past moves in this case
-    \begin{enumerate}
-        \pause
-        \item \textit{one of the player has defected in the past}: both players are then always defecting
-        and neither player could gain by deviating alone to cooperation, \pause
-        \item \textit{neither player has ever defected in the past}: both players are then always cooperating.
-        Could it be more profitable for one player to defect? Less obvious, see blackboard!
-    \end{enumerate}
+    \begin{exampleblock}{Is it a Nash Equilibrium?}
+        Neither player can expect to gain by any unilateral deviation at any point
+        in time (i.e., for any history of past moves).
+        
+        Two possible history of past moves in this case
+        \begin{enumerate}
+            \pause
+            \item \textbf{one of the player has defected in the past}: both players are then always defecting
+            and neither player could gain by deviating alone to cooperation, \pause
+            \item \textbf{neither player has ever defected in the past}: both players are then always
+            cooperating.
+            Could it be more profitable for one player to defect? Less obvious, see blackboard!
+        \end{enumerate}
+    \end{exampleblock}
 \end{frame}
     
 \note{
@@ -85,15 +90,16 @@
 }
 
 \begin{frame}{Intepretation of the cooperative Nash Equilibrium}
-    \begin{block}{How can we explain this cooperative equilibrium?}
-        At each round, both players believe that there is a high probability that they
-        will play again. The hope of inducing a future cooperative behavior by the other
-        player can give each player an incentive to be generous.
-
-        In addition, both players know that defecting is forever punished by the other
-        player so that defecting, while more profitable in the short-term, is not profitable
-        in the long-term.
-    \end{block}
+    \begin{exampleblock}{How can we explain this cooperative equilibrium?}
+        \begin{itemize}
+            \item At each round, both players believe that there is a high probability that they
+            will play again. The hope of \textbf{inducing a future cooperative behavior by the other
+            player} can give each player an incentive to be generous.
+            \item In addition, both players know that \textbf{defecting is} forever \textbf{punished} by
+            the other player so that defecting, while more profitable in the short-term, is not profitable
+            in the long-term.
+        \end{itemize}
+    \end{exampleblock}
 \end{frame}
 
 \begin{frame}{Take-home message \#2}

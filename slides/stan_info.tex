@@ -64,8 +64,28 @@
 
 \begin{frame}{Repeated game with standard information}
     \begin{block}{Definition}
-        A \textit{standard repeated game} is an infinitely repeated game where a same game
+        A \alert{standard repeated game} is an infinitely repeated game where a same game
         $\Gamma$ is repeated infinitely and where at each round $k$, every player knows
-        all the players past moves.
+        all the players past moves. And there exist only one possible state of nature.
     \end{block}
+
+    \begin{equation*}
+        p(d,...,d,\theta | d, \theta) = 1 \quad \forall d \in D 
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Example : the game of Chicken}
+    \begin{exampleblock}{Example}
+        Consider the game of Chicken in normal form
+        \begin{table}
+            \begin{tabular}{c|cc}
+                & {\color{red}$a_2$}    & {\color{red}$b2$} \\
+                \hline
+                {\color{green}$a_1$}    & \payoff{4}{4}   & \payoff{1}6 \\
+                {\color{green}$b_1$}    & \payoff{6}{1}    & \payoff{-3}{-3} 
+            \end{tabular}
+            \caption{Game of Chicken in normal form}
+        \end{table}
+    
+    \end{exampleblock}
 \end{frame}

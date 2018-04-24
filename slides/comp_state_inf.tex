@@ -64,15 +64,15 @@
 
 \begin{frame}{Definition}
 
-\textbf{Definition: }A repeated game $\Gamma^r = (N,\Theta, (D_i,S_i,u_i)_{i\in N},q,p)$ has \textit{complete state information} if, at every round, every player knows the current state of nature. That is, there is a function $\omega_i:S_i \rightarrow \Theta$ know by each player such that:
+\textbf{Definition: }A repeated game $\Gamma^r = (N,\Theta, (D_i,S_i,u_i)_{i\in N},q,p)$ has \alert{complete state information} if, at every round, every player knows the current state of nature. That is, there is a function $\omega_i:S_i \rightarrow \Theta$ know by each player such that:
 \begin{equation*}
-	\forall s \in S, \forall \theta, \hat{\theta} \in \Theta, \forall d \in D : p(s,\hat{\theta} | d,\theta) = 0 \text{if} \hat{\theta} \neq \omega_i(s_i)
+	\forall s \in S, \forall \theta, \hat{\theta} \in \Theta, \forall d \in D : p(s,\hat{\theta} | d,\theta) = 0 \text{ if } \hat{\theta} \neq \omega_i(s_i)
 \end{equation*}
 So the signal $s_i$ can never occur unless the current state is $\omega(s_i)$
 
 \pause
 
-\textbf{Definition: }In a repeated game, a game is said to be \textit{stationnary} iff the move probabiliy depends only on the current state. That is there is a function $\tau_i : \Theta \rightarrow \Delta(D_i)$ such that:
+\textbf{Definition: }In a repeated game, a game is said to be \alert{stationnary} iff the move probabiliy depends only on the current state. That is there is a function $\tau_i : \Theta \rightarrow \Delta(D_i)$ such that:
 \begin{equation*}
 	\forall k, \forall s \in (S)^{\times k} : \sigma_i^{[k]}(\cdot | s) = \tau_i(\cdot | \omega_i(s_i^{[k]}))
 \end{equation*}

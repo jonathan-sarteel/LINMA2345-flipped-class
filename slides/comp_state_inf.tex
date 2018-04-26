@@ -62,20 +62,33 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Definition}
+\begin{frame}{Definition : Game with complete state information}
 
-\textbf{Definition: }A repeated game $\Gamma^r = (N,\Theta, (D_i,S_i,u_i)_{i\in N},q,p)$ has \alert{complete state information} if, at every round, every player knows the current state of nature. That is, there is a function $\omega_i:S_i \rightarrow \Theta$ know by each player such that:
+\metroset{block=fill}
+\begin{block}{Definition}
+A repeated game $\Gamma^r = (N,\Theta, (D_i,S_i,u_i)_{i\in N},q,p)$ has {\color{green}complete state information} if, at every round, every player knows the current state of nature. That is, there is a function $\omega_i:S_i \rightarrow \Theta$ know by each player such that:
 \begin{equation*}
-	\forall s \in S, \forall \theta, \hat{\theta} \in \Theta, \forall d \in D : p(s,\hat{\theta} | d,\theta) = 0 \text{ if } \hat{\theta} \neq \omega_i(s_i)
+    \forall s \in S, \forall \theta, \hat{\theta} \in \Theta, \forall d \in D : p(s,\hat{\theta} | d,\theta) = 0 \text{ if } \hat{\theta} \neq \omega_i(s_i)
 \end{equation*}
 So the signal $s_i$ can never occur unless the current state is $\omega(s_i)$
+\end{block}
 
-\pause
+\alert{add interpretation here}
 
-\textbf{Definition: }In a repeated game, a game is said to be \alert{stationnary} iff the move probabiliy depends only on the current state. That is there is a function $\tau_i : \Theta \rightarrow \Delta(D_i)$ such that:
+\end{frame}
+
+\begin{frame}{Definition : stationary}
+
+\metroset{block=fill}
+\begin{block}{definition}
+In a repeated game, a game is said to be {\color{green}stationary} iff the move probabiliy depends only on the current state. That is there is a function $\tau_i : \Theta \rightarrow \Delta(D_i)$ such that:
 \begin{equation*}
 	\forall k, \forall s \in (S)^{\times k} : \sigma_i^{[k]}(\cdot | s) = \tau_i(\cdot | \omega_i(s_i^{[k]}))
 \end{equation*}
+\end{block}
+
+\alert{add interpretation}
+
 \end{frame}
 
 \begin{frame}{Classical strategies}
@@ -164,4 +177,5 @@ The solution are imediate:
 	\item For $\delta \leq 0.5$ : We play as for the non repetitive Prisoner's dilemma (search for immediate reward).
 	\item For $\delta \geq 0.5$ : If we know that the other is going to play Tit-for-Tat, we should always play cooperate.
 \end{itemize}
+
 \end{frame}

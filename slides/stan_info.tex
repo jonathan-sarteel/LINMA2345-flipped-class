@@ -63,9 +63,130 @@
 \end{frame}
 
 \begin{frame}{Repeated game with standard information}
+    \metroset{block=fill}
     \begin{block}{Definition}
-        A \textit{standard repeated game} is an infinitely repeated game where a same game
-        $\Gamma$ is repeated infinitely and where at each round $k$, every player knows
-        all the players past moves.
+        A {\color{green}standard repeated game} also sometimes called a {\color{green}supergame} is an infinitely repeated game where a same game $\Gamma$ is repeated infinitely and where at each round $k$, every player knows all the players past moves. And there exist only one possible state of nature.
+
+    \begin{equation*}
+        p(d,...,d,\theta | d, \theta) = 1 \quad \forall d \in D 
+    \end{equation*}
     \end{block}
+\end{frame}
+
+\begin{frame}{Example : the game of Chicken}
+    \begin{exampleblock}{Example}
+        Consider the game of Chicken in normal form
+        \begin{table}
+            \begin{tabular}{c|cc}
+                & {\color{red}$a_2$}    & {\color{red}$b2$} \\
+                \hline
+                {\color{green}$a_1$}    & \payoff{4}{4}   & \payoff{6}{1} \\
+                {\color{green}$b_1$}    & \payoff{6}{1}    & \payoff{-3}{-3} 
+            \end{tabular}
+            \caption{Game of Chicken in normal form}
+        \end{table}
+    
+    \end{exampleblock}
+    \note{
+		Draw the normal form on the board    
+		
+		Explain the anecdote
+    }
+\end{frame}
+
+\begin{frame}{Example : The game of Chicken}
+\textbf{Analyze of the game}
+
+\begin{itemize}
+	\pause
+	\item No communication and no repetition $$ u_i = 3$
+	\pause
+	\item No repetition $$ u_i = 3.75$
+	\pause
+	\item Repetition of the game with standard information $$u_i = ??$$
+\end{itemize}
+	\pause
+	Tit-for-tat is an equilibrium if $\delta \geq \frac{2}{3}$
+
+\note{
+	Say that $(a_1,a_2)$ is not an sub-game perfect of the \textbf{one round} game because both players would want to play $b$
+
+	\begin{itemize}
+		\item \textbf{HYP}
+			\begin{itemize}
+				\item Infinitely repeated game with standard information
+				\item Player 1 choose a $\delta$ between 0 and 1, what value of $\delta$
+				\item Player 2 begin to be bold, and then be cautious at every round
+			\end{itemize}
+		\item Compute the $\delta$-discounted average payoff : $(1-\delta)(6+1\delta+\sum_{k=3}^\infty ) = 6 - 5\delta + 3 \delta^2$
+		\item $\delta$-discounted average if no deviation from tit-for-tat : $4 \geq 6 - 5\delta + 3 \delta^2$
+		\item Tit-for-Tat is an equilibrium if $\delta \geq \frac{2}{3}$
+	\end{itemize}
+}
+\end{frame}
+
+\begin{frame}{Going further with the Tit-for-Tat strategy in a standard information game}
+	
+	\textbf{Going fitter}
+	\begin{itemize}
+	\item What will be the $\delta$-discounted average payoff if both player decide to play Tit-for-Tat after player 2 deviation ?
+	\pause
+	
+	\item What will be the $\delta$-discounted average payoff if p1 deviates from Tit-for-Tat after player 2 deviation. Then both play Tit-for-Tat.
+	\pause
+	\item What $\delta$ should we choose so that neither player can gain by being the first to deviate ?
+	\end{itemize}
+	\note{
+	\textbf{Going further}
+	\begin{itemize}
+		\item If both player play Tit-for-tat after P2 deviation $(1-\delta)(1+6\delta+1\delta^2+6\delta^3+...) = \frac{1+6\delta}{1+\delta}$
+		\item If P1 deviate after P2 deviation $(1-\delta)(1+4\delta+4\delta^2+4\delta^3+...) = 1+3\delta$
+		\item $1+3\delta > \frac{1+6\delta}{1+\delta}$ when $\delta > \frac{2}{3}$
+	\end{itemize}
+	
+	\textbf{Grim strategy}
+	
+	Only explain that such unforgiving punishment is not rational and extreme. We might be interested in finding other strategies.			
+	}
+\end{frame}
+
+\begin{frame}{Finding mutual punishment strategies}
+	\metroset{block=fill}
+    \begin{block}{Mutual punishment strategy}
+        For a player i, a {\color{green}mutual punishment strategy} can be :
+        \begin{itemize}
+        	\item On the first round : i plays $a_i$ \pause
+        	\item If last round was $(a_1,a_2) \text{ or } (b_1,b_2)$, i plays $a_i$ \pause
+        	\item If last round was $(a_1,b_2) \text{ or } (b_1,a_2)$, i plays $b_i$
+        \end{itemize}
+    \end{block}
+    \textbf{\color{green}Interpretation}
+    
+    If both players follow the strategy, their expected payoff is 4. If one deviate, the other punish him until he participate himself in his own punishment.
+    
+    \textbf{Question : Is it a sub-game perfect equilibrium to follow the mutual punishment strategy?}
+    
+    \note{
+		\textbf{If strategy call for $b_i$ but play $a_i$}
+		
+		Deviation is noob if $4+4\delta \geq 6 - 3 \delta \qquad \Rightarrow \delta \geq \frac{2}{7}$ not worth to deviate
+		
+		\textbf{If strategy call for $a_i$ but play $b_i$}
+		
+		Deviation is noob if $-3+4\delta \geq 1 - 3\delta \qquad \Rightarrow \delta	\geq \frac{4}{7}$ not worth to deviate
+		
+		    
+    }
+\end{frame}
+
+\begin{frame}{Take home message \#}
+\metroset{block=fill}
+    \begin{block}{Take-home-message \#}
+        A {\color{green}repeated game with standard information} is a game with only one state that is repeated an infinite amount of time.
+        
+        A player can choose different strategies for a single game. In function of the strategy chosen by each player we can compute if the game is a \textbf{sub-game perfect}. To do this we compute the $\delta$-discounted average payoff in case of deviation and no deviation. If we can find a $\delta$ for which the first one is smaller than the second one. It is sub-game perfect.
+        
+        
+    \end{block}
+
 \end{frame}

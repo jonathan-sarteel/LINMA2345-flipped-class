@@ -7,6 +7,8 @@ minimum height=10mm,outer sep=0pt,inner sep=3pt}}
 \tikzset{mobile/.style={naming,draw,shape=rectangle,minimum width=12mm,minimum height=6mm, outer sep=0pt,
 inner sep=3pt}}
 \tikzset{radiation/.style={{decorate,decoration={expanding waves,angle=90,segment length=4pt}}}}
+\tikzset{middlearrow/.style 2 args={decoration={markings,mark=at position 0.5 with {\node[#1] {#2};}},
+postaction={decorate}}}
 
 \newcommand{\BS}[1]{%
 	\begin{tikzpicture}
@@ -59,7 +61,7 @@ inner sep=3pt}}
     \end{center}
     
     \vspace{0.5cm}
-    \textbf{{\color{green}The strong rationnality assumption underlying game theory is more
+    \textbf{{\color{green}The strong rationality assumption underlying game theory is more
     reasonnable for machines than human beings.}}
 \end{frame}
 
@@ -85,14 +87,7 @@ inner sep=3pt}}
 \begin{frame}{Problem description: illustration}
     \begin{figure}
         \centering
-        \begin{tikzpicture}[
-            middlearrow/.style 2 args={
-                decoration={             
-                    markings, 
-                    mark=at position 0.5 with {\node[#1] {#2};}},
-                postaction={
-                    decorate}}
-            ]
+        \begin{tikzpicture}
             \node at (0, 0) (BS) {\BS{BS}};
             \node at (-2, 1) (UE1) {\UE{1}};
             \node at (-2, -1) (UE2) {\UE{2}};
@@ -193,7 +188,7 @@ inner sep=3pt}}
                 \item the power attenuations $h_i$ are constant: only one state\\
                 $\to$ standard repeated game,
                 \pause
-                \item the power attenuations $h_i$ vary in time: mmultiple states\\
+                \item the power attenuations $h_i$ vary in time: multiple states\\
                 $\to$ stochastic game.
             \end{enumerate}
         \end{itemize}
@@ -206,7 +201,7 @@ inner sep=3pt}}
 }
 
 \begin{frame}{Equilibrium strategy}
-    \begin{block}{Equilibirum strategy}
+    \begin{block}{Equilibrium strategy}
         \begin{itemize}
             \item As long as no users exceeds the received power level, the system operates normally ;
             \item If a player behaves selfishly, all the other players transmit at maximum power level

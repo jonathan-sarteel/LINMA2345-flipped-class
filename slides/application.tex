@@ -7,6 +7,8 @@ minimum height=10mm,outer sep=0pt,inner sep=3pt}}
 \tikzset{mobile/.style={naming,draw,shape=rectangle,minimum width=12mm,minimum height=6mm, outer sep=0pt,
 inner sep=3pt}}
 \tikzset{radiation/.style={{decorate,decoration={expanding waves,angle=90,segment length=4pt}}}}
+\tikzset{middlearrow/.style 2 args={decoration={markings,mark=at position 0.5 with {\node[#1] {#2};}},
+postaction={decorate}}}
 
 \newcommand{\BS}[1]{%
 	\begin{tikzpicture}
@@ -85,14 +87,7 @@ inner sep=3pt}}
 \begin{frame}{Problem description: illustration}
     \begin{figure}
         \centering
-        \begin{tikzpicture}[
-            middlearrow/.style 2 args={
-                decoration={             
-                    markings, 
-                    mark=at position 0.5 with {\node[#1] {#2};}},
-                postaction={
-                    decorate}}
-            ]
+        \begin{tikzpicture}
             \node at (0, 0) (BS) {\BS{BS}};
             \node at (-2, 1) (UE1) {\UE{1}};
             \node at (-2, -1) (UE2) {\UE{2}};

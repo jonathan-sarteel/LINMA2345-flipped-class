@@ -74,9 +74,10 @@ So the signal $s_i$ can never occur unless the current state is $\omega(s_i)$
 \end{block}
 
 \pause
-\textbf{Example / Interpretation}
+\textbf{Question: Is the prisoner's dilemma a game with complete state information?}
+\pause
 
-For the prisoner's dilema, if we assume that \alert{players make decision based only on the last move of their oponent}. We have four different state : $\Theta = \{([C,c]), ([C,d]), ([D,c]), ([D,d])\}$
+For the prisoner's dilemma, if we assume that \alert{players make decision based only on the last move of their opponent}. We have four different state : $\Theta = \{([C,c]), ([C,d]), ([D,c]), ([D,d])\}$
 
 \end{frame}
 
@@ -84,16 +85,17 @@ For the prisoner's dilema, if we assume that \alert{players make decision based 
 
 \metroset{block=fill}
 \begin{block}{definition}
-In a repeated game, a game is said to be {\color{green}stationary} iff the move probabiliy depends only on the current state. That is there is a function $\tau_i : \Theta \rightarrow \Delta(D_i)$ such that:
+In a repeated game, a game is said to be {\color{green}stationary} iff the move probability depends only on the current state. That is there is a function $\tau_i : \Theta \rightarrow \Delta(D_i)$ such that:
 \begin{equation*}
 	\forall k, \forall s \in (S)^{\times k} : \sigma_i^{[k]}(\cdot | s) = \tau_i(\cdot | \omega_i(s_i^{[k]}))
 \end{equation*}
 \end{block}
 
 \pause
-\textbf{Example / Interpretation}
+\textbf{Question: Is the grim strategy a stationary strategy?}
+\pause
 
-For the prisoner's dilema, a strategy is said to be stationary, if there is only one move possible for the player at each state $\theta$.
+For the prisoner's dilemma, a strategy is said to be stationary, if there is only one move possible for the player at each state $\theta$. The \textbf{grim} strategy depends on past move, and not on the actual state.
 
 \note{
 	Explain that this definition is only for game with complete state information
@@ -103,7 +105,7 @@ For the prisoner's dilema, a strategy is said to be stationary, if there is only
 \end{frame}
 
 \begin{frame}{Small example to understand complete state information}
-\textit{Consider the prisoner's dilema game in a setting where player make decision based only on the last move of they adversary.} \note{This is contrary to decision theory to make this assumption. Some strategies can still be analysed in that setting. (tit-for-tat)}
+\textit{Consider the prisoner's dilemma game in a setting where player make decision based only on the last move of they adversary.} \note{This is contrary to decision theory to make this assumption. Some strategies can still be analysed in that setting. (tit-for-tat)}
 
 \pause
 $\Rightarrow$ 4 different states : $\Theta = \{([C,c]), ([C,d]), ([D,c]), ([D,d])\}$
@@ -123,61 +125,99 @@ If both player play the \textbf{tit-for-tat} strategy. {\color{green} We can rep
 \end{minipage}
 \end{frame}
 
-\begin{frame}{Representation of the complate state information : Prisoner's Dilema}
+\begin{frame}{How to analyse a game with complete state information ?}
+\textbf{Goal of the analyse:} Determine if the game is worth or not .
 
+Let $\nu_i$ be the expected $\delta$-discounted average payoff for player $i$. If player $i$ plan to play a stationary strategy,  and the state of nature at round 1 is $\theta$, the expected $\delta$-discounted average payoff for player $i$ is :
+\begin{small}
+\begin{eqnarray}
+Y_i(\tau, d_i, \nu_i, \theta, \delta) &=&  \sum_{d_i \in D_i} \left( \prod_{j \in N-i} \tau_j(d_j|\theta) \right) \\ && \cdot  \left(  (1-\delta) u_i(d,\theta) + \delta \sum_{\hat{\theta} \in \Theta} \sum_{s \in S} p(s,\hat{\theta} |d,\theta) \nu_i (\hat{\theta}) \right) \label{eq:comp1}
+\end{eqnarray}  
+\end{small}
 
 \end{frame}
 
 
-\begin{frame}{Analyze the game}
-Let's $\nu_i$ be the \textit{expected $\delta$-discounted average} of player $i$ when beginning from the state $\theta \in \Theta$ when everyone plays according to $\tau$.
+\begin{frame}{Analyze the game with complete state information}
+When every players plays according to $\tau$ :
+
 \begin{small}
-\begin{align*}
+\begin{align}
 \nu_i(\theta, \tau) &=   \sum_{d_i \in D_i} \tau_i(d_i|\theta) \cdot Y_i(\tau, d_i, \nu_i, \theta, \delta)\\
-&= \sum_{d_i \in D_i} \tau_i(d_i|\theta) \sum_{d_{-i} \in D_{-i}} \tau_{-i}(d_{-i} |\theta) \left( (1-\delta) u_i(d_i,\theta) + \delta \sum_{\hat{\theta}} p(\hat{\theta}|d,\theta) \nu_i(\hat{\theta},\tau) \right)  \\
-&= \text{max}_{d_i \in D_i} Y_i(\tau, d_i, \nu_i, \theta, \delta)
-\end{align*}
+&= \text{max}_{d_i \in D_i} Y_i(\tau, d_i, \nu_i, \theta, \delta) \label{eq:comp2}
+\end{align}
 \end{small}
+
+\textbf{\color{green} Interpretation}
+
+\begin{itemize}
+	\item $Y_i$ is the expected $\delta$-discounted average payoff of player $i$ when the state of nature is $\theta$.
+	\item $\tau_i$ is the probability that the move $d_i$ is chosen.
+	\item $\Rightarrow$ $\nu_i$ is then the expected $\delta$-discounted average payoff of player $i$ when players plays according to $\tau$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Theorem : Equilibrium of the repeated game with standard information}
+\metroset{block=fill}
+\begin{block}{Theorem 7.1 (numeration from Myreson's book)}
+	Given a repeated game with complete state information and bounded payoffs, and given a profile of stationary strategies $\tau$, if there exists a bounded vector $\nu = (\nu_i(\theta))_{\theta \in \Theta, i \in N}$ such that equations (\ref{eq:comp1}) and (\ref{eq:comp2}) are satisfied for every player $i$, then $\tau$ is an equilibrium of the repeated game with the $\delta$-discounted average payoff for player $i$ in the repeated game when the initial state of nature is $\theta$.
+\end{block}
+
+\pause
+\textbf{\color{green} Proof / intuition}
+
+
+\end{frame}
+
+\begin{frame}{Example with the prisoner's dilemma}
+\textit{Consider the prisoner's dilemma where player $i$ plays the \textbf{grim} strategy.}
+
+\pause
+We can represent this game with two different state : 
+\begin{itemize}
+	\item \textbf{1a} : Active plays continuing (Nobody has chosen \textit{defect} in the past)
+	\item \textbf{1b} : Active plays continuing (Someone has chosen \textit{defect} in the past)
+\end{itemize}
+
+\pause
+This strategy is stationary with
+$$ \tau_i(c|1a) = 1 \qquad \tau_i(d|1b) = 1$$
+
+\pause
+\textbf{Question : Using the theorem, compute the value of $\delta$ for which it is not worth to defect.}
+\pause
+
 \begin{small}
 \begin{align*}
-Y_i(\tau, d_i, \nu_i, \theta, \delta) = \sum_{d_{-i} \in D_{-i}} \tau_{-i}(d_{-i} |\theta) \left( (1-\delta) u_i(d_i,\theta) + \delta \sum_{\hat{\theta}} p(\hat{\theta}|d,\theta) \nu_i(\hat{\theta},\tau) \right)
+	\nu_i(1a) &= (1-\delta)5 + \delta ( .99 \nu_i(1a) + .01 \nu_i(0) ) \geq (1-\delta)6 + \delta ( .99 \nu_i(1b) + .01 \nu_i(0) ) \\
+	\nu_i(1b) &= (1-\delta)1 + \delta ( .99 \nu_i(1b) + .01 \nu_i(0) ) \geq (1-\delta)0 + \delta ( .99 \nu_i(1b) + .01 \nu_i(0) )	\\
+	\nu_i(0) &= (1-\delta) 0 + \delta \nu_i(0)
 \end{align*}
+$$ \Rightarrow \delta \geq \frac{20}{99} $$
 \end{small}
-This expression can be interpreted as the gain of player $i$ if he played the move $d_i$ once if at state $\theta$ everyone else follows $\tau$.
+
+\note{
+Prisoner's Dilemma in normal form : 
+\begin{table}
+            \begin{tabular}{c|cc}
+                & {\color{red}$a_2$}    & {\color{red}$b2$} \\
+                \hline
+                {\color{green}$a_1$}    & \payoff{5}{5}   & \payoff{6}{1} \\
+                {\color{green}$b_1$}    & \payoff{6}{1}    & \payoff{0}{0} 
+            \end{tabular}
+            \caption{Prisoner's dilemma in normal form}
+        \end{table}
+}
 \end{frame}
 
-\begin{frame}{Let's go back to the prisonner's dilema for a small example}
-For a given $0 \leq \delta < 1$ we have the followin $\delta$-discounted payoff for player 1
-	\begin{align*}
-		\nu_1([C],[c]) &= (1-\delta) \cdot 1 + \delta \cdot \nu_1([C],[c])\\
-		\nu_1([D],[c]) &= (1-\delta) \cdot -1 + \delta \cdot \nu_1([C],[c])\\
-		\nu_1([C],[d]) &= (1-\delta) \cdot 2 + \delta \cdot \nu_1([C],[c])\\
-		\nu_1([D],[d]) &= (1-\delta) \cdot 0 + \delta \cdot \nu_1([C],[c])
-	\end{align*}
-\pause
-The solution are imediate:
-\begin{align*}
-	\nu_1([C],[c]) &= 1\\
-	\nu_1([D],[c]) &= \frac{2\delta - 1}{1+\delta}\\
-	\nu_1([C],[d]) &= \frac{2-\delta}{1+\delta}\\
-	\nu_1([D],[d]) &= 0
-\end{align*}
-\end{frame}
-
-\begin{frame}
-	Then, to ensure that $\tau$ is an equilibrium of the repeated game, we must verify the equation $\nu_i(\theta) = \text{max}_{d_i \in D_i} Y_i(\tau, d_i, \nu_i, \theta, \delta)$. That is to ensure that the follwing inequalities are satisfied.
-\begin{align*}
-	\nu_1([C],[c]) &\geq (1-\delta)2 + \delta \nu_1([D],[c]) = \nu_1([C],[d]) \quad \text{Doing D instead of C}\\
-	\nu_1([D],[c]) &\geq (1-\delta)0 + \delta \nu_1([D],[d]) = 0 \qquad \text{Doing D instead of C}\\
-	\nu_1([C],[d]) &\geq (1-\delta)1 + \delta \nu_1([C],[c]) = 1 \qquad \text{Doing C instead of D}\\
-	\nu_1([D],[d]) &\geq (1-\delta)(-1) + \delta \nu_1([C],[d]) = \nu_1([D],[c]) \quad \text{Doing C instead of D}
-\end{align*}
-
-\pause
-\begin{itemize}
-	\item For $\delta = 0.5$ : equilibrium reached
-	\item For $\delta \leq 0.5$ : We play as for the non repetitive Prisoner's dilemma (search for immediate reward).
-	\item For $\delta \geq 0.5$ : If we know that the other is going to play Tit-for-Tat, we should always play cooperate.
-\end{itemize}
+\begin{frame}{Take home message \#}
+\metroset{block=fill}
+    \begin{block}{Take-home-message \#}
+        A {\color{green}repeated game with complete information} is a game where every players know the current state of nature.
+        
+        A {\color{green}stationary strategy} of a game with complete state information describe the fact that players will play a certain move with probability 1 at in function of the state.
+        
+        We can observe that some strategies are not stationary at a first sight. But if the players have a $\delta$ big enough, a strategy can become stationary (Cf. grim strategy).
+    \end{block}
 
 \end{frame}

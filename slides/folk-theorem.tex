@@ -1,48 +1,60 @@
-
-
-
-
 \begin{frame}{Folk Theorem}
-    \textbf{Folk Theorems}
-    \begin{itemize}
-        \item Theorems that circulate among mathematicians but cannot be traced back to one individual
-        \item Considered to have established status but generally no proof in complete form
-        \item One notable one in Game Theory, that we are going to see today
-    \end{itemize}
+    \begin{block}{Folk Theorems}
+        \begin{itemize}
+            \item Theorems that circulate among mathematicians but cannot be traced back to one individual
+            \item Considered to have established status but generally no proof in complete form
+            \item One notable one in Game Theory, that we are going to see today
+        \end{itemize}
+    \end{block}
 \end{frame}
 
-\begin{frame}{Folk Theorem}
-    \textbf{Enforceable payoff profile}
+\begin{frame}{Enforceability and feasability}
     \begin{itemize}
-        \item Let $v_i= \min_{s_{-i}\in S_{-i}} \max_{s_{i}\in S_{i}} u_i(s_{-i},s_i)$.\\
-        Payoff profile $r$: enforceable if $r_i\geq v_i$
+        \item Consider any $n$-player game $\Gamma = (N, D, u)$ and any payoff vector
+        $u = (u_1, \dots, u_n)$.
+        \item Let $v_i= \min_{d_{-i}\in D_{-i}} \max_{d_i\in D_i} u_i(d_{-i}, d_i)$ be
+        the minmax value of player $i$.
     \end{itemize}
-    \textbf{Feasible payoff profile}
-    \begin{itemize}
-        \item Payoff profile $r$: feasible if there exist rational, non-negative values $\alpha_a$ such that $\forall i$:\\
-        $r_i=\sum_{a\in A} \alpha_a u_i(a)$, with $\sum_{a\in A} \alpha_a=1 $
-    \end{itemize}
+    \metroset{block=fill}
+
+    \begin{block}{Enforceable payoff profile}
+        A payoff profile $u$ is \textbf{enforceable} if $u_i \geq v_i$.
+    \end{block}
+
+    \begin{block}{Feasible payoff profile}
+        A payoff profile $u$ is \textbf{feasible} if there exist rational, non-negative
+        values $\alpha_d$ such that for all $i$, we can express $u_i$ as
+        $\sum_{d\in D} \alpha_d u_i(d)$, with $\sum_{d\in D} \alpha_d = 1$.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Folk Theorem with average rewards}
+    \metroset{block=fill}
+
+    \begin{block}{The Folk theorem with average rewards}
+        Consider any $n$-player normal-form game $\Gamma$ and any payoff profile
+        $u = (u_1, \dots, u_n)$. Then\footnote{This version of the theorem is proven
+        in the book "\textbf{Multiagent Systems}, Algorithmic, Game-Theoretic, and Logical
+        Foundations".}
+        \begin{enumerate}
+            \item If $u$ is the payoff profile in any Nash equilibrium of the infinitely
+            repeated $\Gamma$ with average rewards, then for each player $i$, $u_i$ is enforceable.
+            \item If $u$ is both feasible and enforceable, then $u$ is the payoff profile for some
+            Nash equilibrium of the infinitely repeated $\Gamma$ with average rewards.
+        \end{enumerate}
+    \end{block}
 \end{frame}
 
 
-
-\begin{frame}{Folk Theorem}
-    \textbf{Formulation of the theorem:}\\
-    \textit{Consider any $n$-player normal-form game $G$ and any payoff profile $r = (r_1,r_2,...,r_n)$. Then:}
-    \begin{enumerate}
-        \item \textit{If $r$ is the payoff profile for any Nash equilibrium s of the infinitely repeated $G$ with average rewards, then for each player $i$, $r_i$ is enforceable.}
-        \item \textit{If $r$ is both feasible and enforceable, then $r$ is the payoff profile for some Nash equilibrium of the infinitely repeated $G$ with average rewards.}
-    \end{enumerate}
-    \textit{This version of the theorem is proven in the book "\textbf{Multiagent Systems}, Algorithmic, Game-Theoretic, and Logical Foundations"}
-\end{frame}
-
-
-\begin{frame}{Folk Theorem}
-    \textbf{What does it mean?}\\
-    \begin{itemize}
-        \item The first part of the theorem means that we can enforce any Nash equilibrium of the infinitely-repeated game
-        \item The second part states that any payoff profile that is feasible and enforceable is the payoff profile of a Nash equilibrium 
-    \end{itemize}
+\begin{frame}{Interpretation of the Folk theorem}
+    \begin{exampleblock}{What does it mean?}
+        \begin{itemize}
+            \item The first part of the theorem means that we can enforce any Nash equilibrium
+            of the infinitely-repeated game
+            \item The second part states that any payoff profile that is feasible and enforceable
+            is the payoff profile of a Nash equilibrium 
+        \end{itemize}
+    \end{exampleblock}
 \end{frame}
 
 \begin{frame}{Folk Theorem}
@@ -51,12 +63,11 @@
         \item Interesting consequences: apparition of new Nash equilibrium's for certain games
         \item Example: prisoner's dilemna
         \begin{itemize}
-            \item If game goes on long enough ($\delta \rightarrow 1$), cooperation of both players becomes a Nash equilibrium
+            \item If game goes on long enough ($\delta \rightarrow 1$), cooperation of both
+            players becomes a Nash equilibrium
         \end{itemize}
     \end{itemize}
 \end{frame}
-
-
 
 \begin{frame}{Folk Theorem}
     \begin{exampleblock}{Example}
@@ -86,14 +97,12 @@
     By Folk theorem $\rightarrow$ Nash equilibrium
 }
 
-
-
-\begin{frame}{Take-home message \#2}
+\begin{frame}{Take-home message \#7}
     \metroset{block=fill}
-    \begin{block}{Take-home message \#2}
-        Folk theorem:\\
+    \begin{block}{Take-home message \#7}
+        By the \textbf{Folk theorem} with average rewards
         \begin{center}    
-            Payoff is Nash $\leftrightarrow$ Payoff feasible and enforceable
+            payoff Nash equilibrium $\leftrightarrow$ payoff feasible and enforceable.
         \end{center}
     \end{block}
 \end{frame}

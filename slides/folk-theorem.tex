@@ -1,5 +1,7 @@
 
 
+
+
 \begin{frame}{Folk Theorem}
     \textbf{Folk Theorems}
     \begin{itemize}
@@ -9,6 +11,20 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Folk Theorem}
+    \textbf{Enforceable payoff profile}
+    \begin{itemize}
+        \item Let $v_i= \min_{s_{-i}\in S_{-i}} \max_{s_{i}\in S_{i}} u_i(s_{-i},s_i)$.\\
+        Payoff profile $r$: enforceable if $r_i\geq v_i$
+    \end{itemize}
+    \textbf{Feasible payoff profile}
+    \begin{itemize}
+        \item Payoff profile $r$: feasible if there exist rational, non-negative values $\alpha_a$ such that $\forall i$:\\
+        $r_i=\sum_{a\in A} \alpha_a u_i(a)$, with $\sum_{a\in A} \alpha_a=1 $
+    \end{itemize}
+\end{frame}
+
+
 
 \begin{frame}{Folk Theorem}
     \textbf{Formulation of the theorem:}\\
@@ -17,7 +33,7 @@
         \item \textit{If $r$ is the payoff profile for any Nash equilibrium s of the infinitely repeated $G$ with average rewards, then for each player $i$, $r_i$ is enforceable.}
         \item \textit{If $r$ is both feasible and enforceable, then $r$ is the payoff profile for some Nash equilibrium of the infinitely repeated $G$ with average rewards.}
     \end{enumerate}
-    \textit{This version of the theorem is proven in the book [MAS]}
+    \textit{This version of the theorem is proven in the book "\textbf{Multiagent Systems}, Algorithmic, Game-Theoretic, and Logical Foundations"}
 \end{frame}
 
 
@@ -38,4 +54,46 @@
             \item If game goes on long enough ($\delta \rightarrow 1$), cooperation of both players becomes a Nash equilibrium
         \end{itemize}
     \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Folk Theorem}
+    \begin{exampleblock}{Example}
+        Consider the Prisoner's Dilemma in normal form.
+        \begin{table}
+            \begin{tabular}{c|cc}
+                & {\color{red}c}    & {\color{red}d} \\
+                \hline
+                {\color{green}C}    & \payoff{-1}{-1}   & \payoff{-4}{~0} \\
+                {\color{green}D}    & \payoff{~0}{-4}    & \payoff{-3}{-3} 
+            \end{tabular}
+            \caption{Prisoner's Dilemma in normal form.}
+        \end{table}
+    \end{exampleblock}
+\end{frame}
+
+\note{
+    Simply prove that cooperation is feasible and enforceable:\\
+    \begin{itemize}
+        \item Enforceability
+            $v_1=\min_{s_{-1}\in S_{-1}} \max_{s_{1}\in S_{1}} u_1(s_{-1},s_1) =-3$\\
+            $v_2=\min_{s_{-2}\in S_{-2}} \max_{s_{2}\in S_{2}} u_2(s_{-2},s_2) =-3$\\
+            $r_1=1\geq -3$,$r_2=1\geq -3 \rightarrow$ enforceable \\
+        \item Feasibility
+            $\alpha_{(c,C)}= 1$, rest $\alpha=0 \rightarrow$ feasible
+    \end{itemize}
+    By Folk theorem $\rightarrow$ Nash equilibrium
+}
+
+
+
+\begin{frame}{Take-home message \#2}
+    \metroset{block=fill}
+    \begin{block}{Take-home message \#2}
+        Folk theorem:\\
+        \begin{center}    
+            Payoff is Nash $\leftrightarrow$ Payoff feasible and enforceable
+        \end{center}
+    \end{block}
 \end{frame}

@@ -73,7 +73,10 @@ A repeated game $\Gamma^r = (N,\Theta, (D_i,S_i,u_i)_{i\in N},q,p)$ has {\color{
 So the signal $s_i$ can never occur unless the current state is $\omega(s_i)$
 \end{block}
 
-\alert{add interpretation here}
+\pause
+\textbf{Example / Interpretation}
+
+For the prisoner's dilema, if we assume that \alert{players make decision based only on the last move of their oponent}. We have four different state : $\Theta = \{([C,c]), ([C,d]), ([D,c]), ([D,d])\}$
 
 \end{frame}
 
@@ -87,42 +90,41 @@ In a repeated game, a game is said to be {\color{green}stationary} iff the move 
 \end{equation*}
 \end{block}
 
-\alert{add interpretation}
+\pause
+\textbf{Example / Interpretation}
 
-\end{frame}
+For the prisoner's dilema, a strategy is said to be stationary, if there is only one move possible for the player at each state $\theta$.
 
-\begin{frame}{Classical strategies}
-\begin{itemize}
-	\item \textbf{Tit-for-tat:} We begin by cooperating and then, at every round, we chose the move of our opponent at the last round.
-	\item \textbf{Grim:} We begin the game with cooperation and continue cooperating at each round unless the other player defects. From this point on, we defect.
-	\item \textbf{Getting-even:} We begin by cooperating, and continue cooperating unless the opponent has defected more time that we did defect. If this is the case, we defect.
-\end{itemize}
+\note{
+	Explain that this definition is only for game with complete state information
+	
+	Il faut connaître l'état pour etre stationnaire, si on ne connait pas l'état on ne pourra pas être stationnaire.
+}
 \end{frame}
 
 \begin{frame}{Small example to understand complete state information}
 \textit{Consider the prisoner's dilema game in a setting where player make decision based only on the last move of they adversary.} \note{This is contrary to decision theory to make this assumption. Some strategies can still be analysed in that setting. (tit-for-tat)}
 
 \pause
-$\Rightarrow$ 4 differents states : $\Theta = \{([C,c]), ([C,d]), ([D,c]), ([D,d])\}$
+$\Rightarrow$ 4 different states : $\Theta = \{([C,c]), ([C,d]), ([D,c]), ([D,d])\}$
 
 \pause
-If both player play the \textbf{tit-for-tat} strategy
+If both player play the \textbf{tit-for-tat} strategy. {\color{green} We can represent } the game like that:
 
-\begin{minipage}{0.6\linewidth}
+\begin{minipage}{0.7\linewidth}
 \includegraphics[width=0.9\linewidth]{img/titfortat.png}
 \end{minipage}
-\begin{minipage}{0.35\linewidth}
+\begin{minipage}{0.29\linewidth}
 	\begin{itemize}
 		\item Plain arrow if player 1 play tit-for-tat.
 		\item Dashed arrow if player 1 play the opposite.
 		\item Player 2 play tit-for-tat
 	\end{itemize}
-	\note{
-		Make the graph on board if we play grim strategy
-		
-		\includegraphics[width=0.5\linewidth]{img/ex_grim.jpg}	
-	}
 \end{minipage}
+\end{frame}
+
+\begin{frame}{Representation of the complate state information : Prisoner's Dilema}
+
 
 \end{frame}
 

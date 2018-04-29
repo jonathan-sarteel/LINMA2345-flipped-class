@@ -13,7 +13,7 @@
 
 \begin{frame}{Enforceability and feasability}
     \begin{itemize}
-        \item Consider any $n$-player game $\Gamma = (N, D, u)$ and any payoff vector
+        \item Consider any $n$-player game $\Gamma = (N, \Theta, (D_i, S_i, u_i)_{i\in N}, q, p)$ and any payoff vector
         $u = (u_1, \dots, u_n)$.
         \item Let $v_i= \min_{d_{-i}\in D_{-i}} \max_{d_i\in D_i} u_i(d_{-i}, d_i)$ be
         the minmax value of player $i$.
@@ -75,7 +75,7 @@
         \item Interesting consequences: apparition of new Nash equilibrium's for certain games
         \item Example: prisoner's dilemna
         \begin{itemize}
-            \item If game goes on long enough (proba of 1 more turn $\rightarrow 1$), cooperation of both
+            \item If game goes on long enough (proba of 1 more turn big enough), cooperation of both
             players becomes a Nash equilibrium
         \end{itemize}
     \end{itemize}

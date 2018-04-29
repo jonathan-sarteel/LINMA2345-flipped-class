@@ -52,14 +52,17 @@ postaction={decorate}}}
 \end{frame}
 
 \begin{frame}{An interesting though on Game Theory}
-    In~\cite{mackenzie01}, MacKenzie and Wicker argue
 
     \begin{center}
         ``\textit{In some sense, game theory is better suited to solving communications
         problem -- where the agents are likely to be computers -- than to solving economic
-        problems.}''
+        problems.}''\footnote{From 
+        A. B. MacKenzie and S. B. Wicker, \textbf{Game theory in communications: motivation,
+        explanation and application to power control}, {\color{gray}Global Telecommunications
+        Conference, 821--826, 2001}.}
     \end{center}
     
+    \pause
     \vspace{0.5cm}
     \textbf{{\color{green}The strong rationality assumption underlying game theory is more
     reasonable for machines than human beings.}}
@@ -69,20 +72,6 @@ postaction={decorate}}}
     At this point, make the parallel with~\cite{pd-repeated-real-life} and potentially with
     the result of the first game played by the audience.
 }
-
-\begin{frame}{Problem description: players and strategy space}
-    \begin{exampleblock}{Players and strategy space}
-        \begin{itemize}
-            \pause
-            \item Players are smartphones willing to upload some data to a single base station (e.g. in
-            a 4G network)
-            \pause
-            \item The power attenuation between player $i$ and the base station is $h_i \ge 0$
-            \pause
-            \item Each player controls its transmitted power level $p_i \ge 0$
-        \end{itemize}
-    \end{exampleblock}
-\end{frame}
 
 \begin{frame}{Problem description: illustration}
     \begin{figure}
@@ -105,20 +94,42 @@ postaction={decorate}}}
     \end{figure}
 \end{frame}
 
+\begin{frame}{Problem description: players and strategy space}
+    \begin{exampleblock}{Players and strategy space}
+        \begin{itemize}
+            \pause
+            \item Players are smartphones willing to upload some data to a single base station (e.g. in
+            a 4G network)
+            \pause
+            \item Each player controls its transmitted power level $p_i \ge 0$
+        \end{itemize}
+    \end{exampleblock}
+
+    \vspace{0.5cm}
+    \pause
+    \begin{block}{Parameter}
+        The power attenuation between player $i$ and the base station is $h_i \ge 0$.
+    \end{block}
+\end{frame}
+
+
 \begin{frame}{Problem description: utility (1)}
     \begin{exampleblock}{Utility: what does each player want?}
         \begin{itemize}
+            \pause
             \item Each player $i$ wants to increase
             \[ \text{SINR}_i = \frac{h_ip_i}{\sum_{j\neq i} h_jp_j 
                 + \underbrace{\sigma^2}_\text{noise power}} \]
             This corresponds to \textbf{decreasing their interference level} at the base station.
+            \pause
             \item Each player $i$ wants to avoid using too much power $p_i$. This corresponds
             to \textbf{saving their battery life}.
         \end{itemize}
     \end{exampleblock}
 
+    \pause
     \vspace{0.5cm}
-    $\to$ Units: (number of successfully transmitted bit) per (Joule used).
+    $\to$ Units: (number of successfully transmitted bits) per (Joule used).
 \end{frame}
 
 \begin{frame}{Problem description: utility (2)}
@@ -156,7 +167,7 @@ postaction={decorate}}}
 
 \begin{frame}{The single-shot game}
     \begin{block}{Where is the game here?}
-        Increasing $\text{SNR}_i$ requires increasing $p_i$, this will decrease $\text{SINR}_j$ and
+        Increasing $\text{SINR}_i$ requires increasing $p_i$, this will decrease $\text{SINR}_j$ and
         thus decrease other players utility.
     \end{block}
     \pause 

@@ -50,7 +50,7 @@
         \item {\color<3>{green} Non-empty set of possible states of nature}
         \item {\color<4>{green} Set of moves player $i$ can choose at each round of the game. Let
         \[ D = \bigtimes_{i\in N} D_i .\]}
-        \item {\color<5>{green} Set of signals player $i$ can receiver each round of the game. Let
+        \item {\color<5>{green} Set of signals player $i$ can receive at each round of the game. Let
         \[ S = \bigtimes_{i\in N} S_i .\]}
         \item {\color<6>{green} $u_i: D\times \Theta \to \mathbb{R}$ is the payoff function of player $i$}
         \item {\color<7>{green} $q \in \Delta(S \times \Theta)$ is the initial distribution}
@@ -118,24 +118,13 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{Equilibrium}
-    \begin{block}{Equilibrium}
-        By defining some additional quantities and doing some more {\color{orange}cumbersome}
-        math, we can define what an \textit{equilibrium} is (for the different criteria for
-        ranking payoffs given in the previous section).
-    \end{block}
-
+\begin{frame}{Equilibrium of infinitely repeated games}
     \begin{alertblock}{Challenges}
-        Because the set of behavioral strategies is \textbf{infinite}, checking if a strategy is an
-        equilibrium is very hard.
+        The set of pure and behavioral strategies are \textbf{infinite}.\\
+        {\color{orange}$\to$ checking if a strategy is an equilibirum can be very hard!}
     \end{alertblock}
-\end{frame}
 
-\note{
-    We should briefly explain why the set of behavioral strategy is infinite here.
-}
-
-\begin{frame}{The bounded rationality principle to the rescue}
+    \pause
     \begin{exampleblock}{The bounded rationality principle}
         In practice, we can limit the history of past signals received to the $l$ last signals
         to define strategies.\\
@@ -144,10 +133,15 @@
 
     \vspace{0.5cm}
     \begin{block}{One possible interpretation}
-        We can think of that as a rational players programming a computer with limited memory and
+        We can think of that as a rational player programming a computer with limited memory and
         computational power to choose its moves.
     \end{block}
+
 \end{frame}
+
+\note{
+    We should briefly explain why the set of behavioral strategy is infinite here.
+}
 
 \begin{frame}{A Taxonomy of Repeated Games Models}
     \begin{figure}

@@ -67,8 +67,8 @@
             \end{tabular}
             \caption{Example}
         \end{table}
-        Free choice!\\
         Let's assume that player 1 plays U and player 2 plays l at first turn.\\
+        (worst case, we want to prove convergence for every initial condition)\\
     \end{exampleblock}
 \end{frame}
 
@@ -184,7 +184,7 @@
 \begin{frame}{No-regret playing}
     \textbf{Regret}\\
     \textit{Let $\alpha^t$ be the average per-period reward the agent received up to time $t$ and $\alpha^t(d)$ the average per-period reward the agent would have received by playing strategy $d$.}\\
-    \textit{The regret an agent experiences at time $t$ for not having played $d$ is $R^t(d)=\alpha^t-\alpha^t(d)$}
+    \textit{The regret an agent experiences at time $t$ for not having played $d$ is $R^t(d)=\alpha^t(d)-\alpha^t$}
 \end{frame}
 
 \begin{frame}{No-regret playing}
@@ -199,38 +199,12 @@
     \textbf{Example of a no-regret strategy: Regret matching}\\
     \begin{itemize}
         \item At each time step each action is chosen with probability consistent to its regret
-        \item The strategy of playing strategy $s$ at timestep $t+1$ is equal to:
+        \item The probability of playing strategy $d$ at timestep $t+1$ is equal to:
         \[
             \sigma_i^{t+1}(d)= \frac{R^t(d)}{\sum_{d'\in D_i} R^t(d')}
         \]
     \end{itemize}
 \end{frame}
-
-\begin{frame}{No-regret playing}
-    \begin{exampleblock}{Example}
-        Consider the battle of sexes game.
-        \begin{table}
-            \begin{tabular}{c|cc}
-                                    & {\color{red}t}    & {\color{red}f} \\
-                \hline
-                {\color{green}T}    & \payoff{3}{2}   & \payoff{1}{~1} \\
-                {\color{green}F}    & \payoff{~0}{0}    & \payoff{2}{3} 
-            \end{tabular}
-            \caption{Battle of sexes}
-        \end{table}
-    \end{exampleblock}
-\end{frame}
-
-\note{
-    Let's assume that player 1 plays T and player 2 plays f at first turn.\\
-    \begin{itemize}
-        \item 2: $\alpha_1^1=1, \alpha_1^1(T)=1, \alpha_1^1(F)=2, R_1^1(T)=0, R_1^1(F)=-1, \sigma_1^2(T)=\frac{0}{0-1}=0, \sigma_1^2(F)=\frac{-1}{0-1}=1 \rightarrow$ plays F\\
-                 $\alpha_2^1=1, \alpha_2^1(t)=2, \alpha_2^1(f)=1, R_1^1(t)=-1, R_1^1(f)=0, \sigma_2^2(t)=\frac{-1}{0-1}=1, \sigma_1^2(F)=\frac{0}{0-1}=0
-        \rightarrow$ plays t
-        \item 3: $\alpha_1^2=0.5, \alpha_1^2(T)=\frac{1+3}{2}=2, \alpha_1^2(F)=\frac{2+0}{2}=1, R_1^2(T)=-1.5, R_1^2(F)=-0.5, \sigma_1^2(T)=\frac{-1.5}{-2}=0.75, \sigma_1^2(F)=\frac{-0.5}{-2}=0.25 \rightarrow$ plays 0.75[T]+0.25[F]\\
-                 $\alpha_2^2=0.5, \alpha_2^2(t)=\frac{2+0}{2}=1, \alpha_2^2(f)=\frac{1+3}{2}=2, R_2^2(t)=-0.5, R_2^2(f)=-1.5, \sigma_2^2(t)=\frac{-0.5}{-2}=0.25, \sigma_2^2(f)=\frac{-1.5}{-2}=0.75 \rightarrow$ plays 0.25[t]+0.75[f]\\
-    \end{itemize}
-}
 
 \begin{frame}{Take-home message \#3}
     \metroset{block=fill}

@@ -74,7 +74,7 @@ So the signal $s_i$ can never occur unless the current state is $\omega(s_i)$
 \end{block}
 
 \pause
-\textbf{Question: Is the prisoner's dilemma a game with complete state information?}
+\textbf{\color{green}Is the prisoner's dilemma a game with complete state information?}
 \pause
 
 For the prisoner's dilemma, if we assume that \alert{players make decision based only on the last move of their opponent}. We have four different state : $\Theta = \{([C,c]), ([C,d]), ([D,c]), ([D,d])\}$
@@ -92,7 +92,7 @@ In a repeated game, a game is said to be {\color{green}stationary} iff the move 
 \end{block}
 
 \pause
-\textbf{Question: Is the grim strategy a stationary strategy?}
+\textbf{\color{green}Is the grim strategy a stationary strategy?}
 \pause
 
 For the prisoner's dilemma, a strategy is said to be stationary, if there is only one move possible for the player at each state $\theta$. The \textbf{grim} strategy depends on past move, and not on the actual state.
@@ -164,7 +164,6 @@ When every players plays according to $\tau$ :
 \end{block}
 
 \pause
-\textbf{\color{green} Proof / intuition}
 
 
 \end{frame}
@@ -182,18 +181,17 @@ We can represent this game with two different state :
 \pause
 This strategy is stationary with
 $$ \tau_i(c|1a) = 1 \qquad \tau_i(d|1b) = 1$$
-
 \pause
-\textbf{Question : Using the theorem, compute the value of $\delta$ for which it is not worth to defect.}
+\textbf{\color{green}Using the theorem, compute the value of $\delta$ for which it is not worth to defect.}
 \pause
 
 \begin{small}
 \begin{align*}
-	\nu_i(1a) &= (1-\delta)5 + \delta ( .99 \nu_i(1a) + .01 \nu_i(0) ) \geq (1-\delta)6 + \delta ( .99 \nu_i(1b) + .01 \nu_i(0) ) \\
-	\nu_i(1b) &= (1-\delta)1 + \delta ( .99 \nu_i(1b) + .01 \nu_i(0) ) \geq (1-\delta)0 + \delta ( .99 \nu_i(1b) + .01 \nu_i(0) )	\\
+	\nu_i(1a) &= (1-\delta)(-1) + \delta \left( \frac{5}{6} \nu_i(1a) + \frac{1}{6} \nu_i(0) \right) \geq (1-\delta)0 + \delta \left( \frac{5}{6} \nu_i(1b) + \frac{1}{6} \nu_i(0) \right) \\
+	\nu_i(1b) &= (1-\delta)(-3) + \delta \left( \frac{5}{6} \nu_i(1b) + \frac{1}{6} \nu_i(0) \right) \geq (1-\delta)(-4) + \delta \left( \frac{5}{6} \nu_i(1b) + \frac{1}{6} \nu_i(0) \right)	\\
 	\nu_i(0) &= (1-\delta) 0 + \delta \nu_i(0)
 \end{align*}
-$$ \Rightarrow \delta \geq \frac{20}{99} $$
+$$ \Rightarrow \delta \geq \frac{2}{5} $$
 \end{small}
 
 \note{
@@ -202,8 +200,8 @@ Prisoner's Dilemma in normal form :
             \begin{tabular}{c|cc}
                 & {\color{red}$a_2$}    & {\color{red}$b2$} \\
                 \hline
-                {\color{green}$a_1$}    & \payoff{5}{5}   & \payoff{6}{1} \\
-                {\color{green}$b_1$}    & \payoff{6}{1}    & \payoff{0}{0} 
+                {\color{green}$a_1$}    & \payoff{-1}{-1}   & \payoff{-4}{0} \\
+                {\color{green}$b_1$}    & \payoff{0}{-4}    & \payoff{-3}{-3} 
             \end{tabular}
             \caption{Prisoner's dilemma in normal form}
         \end{table}

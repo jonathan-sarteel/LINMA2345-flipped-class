@@ -67,12 +67,18 @@
     \begin{block}{Definition}
         A {\color{green}standard repeated game} also sometimes called a {\color{green}supergame} is an infinitely repeated game where a same game $\Gamma$ is repeated infinitely and where at each round $k$, every player knows all the players past moves. And there exist only one possible state of nature.
 
-    \begin{equation*}
-        p(d,...,d,\theta | d, \theta) = 1 \quad \forall d \in D 
-    \end{equation*}
+	\begin{align*}
+		&p(d,...,d,\theta | d, \theta) = 1 \quad \forall d \in D \\
+		&|\Theta| = 1 \\
+		& S_i = \bigtimes_{j \in N} D_j \quad \forall i 
+	\end{align*}
     \end{block}
 \end{frame}
 
+\begin{frame}{Repeated game with standard information}
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/std.png}
+\end{frame}
 \begin{frame}{Example : the game of Chicken}
     \begin{exampleblock}{Example}
         Consider the game of Chicken in normal form
@@ -80,7 +86,7 @@
             \begin{tabular}{c|cc}
                 & {\color{red}$a_2$}    & {\color{red}$b2$} \\
                 \hline
-                {\color{green}$a_1$}    & \payoff{4}{4}   & \payoff{6}{1} \\
+                {\color{green}$a_1$}    & \payoff{4}{4}   & \payoff{1}{6} \\
                 {\color{green}$b_1$}    & \payoff{6}{1}    & \payoff{-3}{-3} 
             \end{tabular}
             \caption{Game of Chicken in normal form}
@@ -94,14 +100,16 @@
     }
 \end{frame}
 
-\begin{frame}{Example : The game of Chicken}
+\begin{frame}{Equilibrium of the single shot game}
 \textbf{Analyze of the game}
 
 \begin{itemize}
 	\pause
-	\item No communication and no repetition $$ u_i = 3$
-	\pause
-	\item No repetition $$ u_i = 3.75$
+	\item Nash equilibrium : (1,6) (6,1)
+	\begin{itemize}
+		\item Randomized equilibrium : $u_i = 0.5\cdot4 + 0.5 \cdot (6+1-3) = 3$
+		\item Correlated equilibrium : $u_i = 0.5\cdot4 + 0.25 \cdot (6+1) =  3.75$
+	\end{itemize}
 	\pause
 	\item Repetition of the game with standard information $$u_i = ??$$
 \end{itemize}
@@ -118,7 +126,7 @@
 				\item Player 1 choose a $\delta$ between 0 and 1, what value of $\delta$
 				\item Player 2 begin to be bold, and then be cautious at every round
 			\end{itemize}
-		\item Compute the $\delta$-discounted average payoff : $(1-\delta)(6+1\delta+\sum_{k=3}^\infty ) = 6 - 5\delta + 3 \delta^2$
+		\item Compute the $\delta$-discounted average payoff : $(1-\delta)(6+1\delta+\sum_{k=3}^\infty 4\delta^{k-1} ) = 6 - 5\delta + 3 \delta^2$
 		\item $\delta$-discounted average if no deviation from tit-for-tat : $4 \geq 6 - 5\delta + 3 \delta^2$
 		\item Tit-for-Tat is an equilibrium if $\delta \geq \frac{2}{3}$
 	\end{itemize}
@@ -127,7 +135,7 @@
 
 \begin{frame}{Going further with the Tit-for-Tat strategy in a standard information game}
 	
-	\textbf{Going fitter}
+	\textbf{Going further}
 	\begin{itemize}
 	\item What will be the $\delta$-discounted average payoff if both player decide to play Tit-for-Tat after player 2 deviation ?
 	\pause
@@ -164,7 +172,7 @@
     
     If both players follow the strategy, their expected payoff is 4. If one deviate, the other punish him until he participate himself in his own punishment.
     
-    \textbf{Question : Is it a sub-game perfect equilibrium to follow the mutual punishment strategy?}
+    \textbf{\color{green}Is it a sub-game perfect equilibrium to follow the mutual punishment strategy?}
     
     \note{
 		\textbf{If strategy call for $b_i$ but play $a_i$}
